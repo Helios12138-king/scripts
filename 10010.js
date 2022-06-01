@@ -584,7 +584,7 @@ const main = async () => {
       })
     }
     if (freeFlowTxt) {
-      totalMsgs.push(`  免 ${freeFlowTxt}`)
+      totalMsgs.push(`  免流 ${freeFlowTxt}`)
     }
     if (!remainingFlowTxt && paidFlowTxt) {
       totalMsgs.push(`  跳 ${paidFlowTxt}`)
