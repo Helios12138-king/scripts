@@ -137,8 +137,8 @@ async function query({ cookie }) {
   const now = new Date().getTime()
 
   const titleTpl = $.getdata(KEY_TITLE) || '[套]'
-  const subtitleTpl = $.getdata(KEY_SUBTITLE) || '✦ 跳[跳] ┆ 免[免] ✦'
-  const bodyTpl = $.getdata(KEY_BODY) || '✦ 流量[剩]／[总] [单] ┆ 总免[总免] ✦'
+  const subtitleTpl = $.getdata(KEY_SUBTITLE) || '✦ ${new Date(now).toLocaleString('zh')} 跳[跳] ┆ 免[免] ✦'
+  const bodyTpl = $.getdata(KEY_BODY) || '✦ 流量[剩] / [总] [单] ┆ 总免[总免] ✦'
   const otherPkgTpl = $.getdata(KEY_OTHER_PKG_TPL) || '[包] 剩余[剩] 已用[用]'
 
   const ignoreFlow = $.getdata(KEY_IGNORE_FLOW) || 0
