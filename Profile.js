@@ -20,7 +20,7 @@ const verified = {
     "oid": ""
   },
   "icon": "https:\/\/h5.sinaimg.cn\/upload\/1059\/799\/2020\/05\/19\/verified.png",
-  "desc": "宇宙第1⃣️大猛男"
+  "desc": "人间于此/欢喜是你。"
 };
 const badge = {
   "ylpshuidao_2021": 1,
@@ -185,7 +185,7 @@ if (url.indexOf(profile) != -1) {
         "key": 1,
         "weight": 10,
         "sub_key": 0,
-        "desc": "宇宙第1⃣️大猛男"
+        "desc": "人间于此/欢喜是你。"
       }
     ]
   };
@@ -193,9 +193,9 @@ if (url.indexOf(profile) != -1) {
   obj.userInfo.geo_enabled = false;
   obj.userInfo.verified_detail = verified_detail;
   obj.userInfo.svip = 1;
-  obj.userInfo.verified_reason = '宇宙第1⃣️大猛男';
+  obj.userInfo.verified_reason = '人间于此/欢喜是你。';
   obj.userInfo.statuses_count = 0;
-  obj.userInfo.orange_v = '宇宙第1⃣️大猛男';
+  obj.userInfo.orange_v = '人间于此/欢喜是你。';
   obj.userInfo.verified_level = 2;
   obj.userInfo.avatargj_id = 'gj_vip_583';
   obj.userInfo.verified = true;
@@ -213,7 +213,7 @@ if (url.indexOf(profile) != -1) {
   if (obj.userInfo.infoList[0].actionlog.ext != 'name:verified') {
     obj.userInfo.infoList.splice(0, 0, verified);
   } else {
-    obj.userInfo.infoList[0].desc = '宇宙第1⃣️大猛男';
+    obj.userInfo.infoList[0].desc = '人间于此/欢喜是你。';
   }
   obj.userInfo.badge = badge;
 }
@@ -228,7 +228,7 @@ if (url.indexOf(users) != -1) {
         "key": 1,
         "weight": 10,
         "sub_key": 0,
-        "desc": "宇宙第1⃣️大猛男"
+        "desc": "人间于此/欢喜是你。"
       }
     ]
   };
@@ -236,9 +236,9 @@ if (url.indexOf(users) != -1) {
   obj.geo_enabled = false;
   obj.verified_detail = verified_detail;
   obj.svip = 1;
-  obj.verified_reason = "宇宙第1⃣️大猛男";
+  obj.verified_reason = "人间于此/欢喜是你。";
   obj.statuses_count = 0;
-  obj.orange_v = "宇宙第1⃣️大猛男";
+  obj.orange_v = "人间于此/欢喜是你。";
   obj.verified_level = 2;
   obj.avatargj_id = "gj_vip_583";
   obj.verified = true;
@@ -268,7 +268,7 @@ if (url.indexOf(comments) != -1) {
         "key": 1,
         "weight": 10,
         "sub_key": 0,
-        "desc": "宇宙第1⃣️大猛男"
+        "desc": "人间于此/欢喜是你。"
       }
     ]
   };
@@ -276,9 +276,9 @@ if (url.indexOf(comments) != -1) {
   obj.user.geo_enabled = false;
   obj.user.verified_detail = verified_detail;
   obj.user.svip = 1;
-  obj.user.verified_reason = '宇宙第1⃣️大猛男';
+  obj.user.verified_reason = '人间于此/欢喜是你。';
   obj.user.statuses_count = 0;
-  obj.user.orange_v = '宇宙第1⃣️大猛男';
+  obj.user.orange_v = '人间于此/欢喜是你。';
   obj.user.verified_level = 2;
   obj.user.avatargj_id = 'gj_vip_583';
   obj.user.verified = true;
@@ -314,7 +314,7 @@ if (url.indexOf(statuses) != -1) {
         "key": 1,
         "weight": 10,
         "sub_key": 0,
-        "desc": "宇宙第1⃣️大猛男"
+        "desc": "人间于此/欢喜是你。"
       }
     ]
   };
@@ -322,9 +322,9 @@ if (url.indexOf(statuses) != -1) {
   obj.user.geo_enabled = false;
   obj.user.verified_detail = verified_detail;
   obj.user.svip = 1;
-  obj.user.verified_reason = '宇宙第1⃣️大猛男';
+  obj.user.verified_reason = '人间于此/欢喜是你。';
   obj.user.statuses_count = 0;
-  obj.user.orange_v = '宇宙第1⃣️大猛男';
+  obj.user.orange_v = '人间于此/欢喜是你。';
   obj.user.verified_level = 2;
   obj.user.avatargj_id = 'gj_vip_583';
   obj.user.verified = true;
