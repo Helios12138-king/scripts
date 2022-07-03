@@ -147,7 +147,7 @@ async function query({ cookie }) {
 
   const titleTpl = $.getdata(KEY_TITLE) || '[套]'
   const subtitleTpl = $.getdata(KEY_SUBTITLE) || '本次使用 [跳]'
-  const bodyTpl = $.getdata(KEY_BODY) || '剩余 [剩]／[总]'
+  const bodyTpl = $.getdata(KEY_BODY) || '剩余 [剩]([总])'
   const otherPkgTpl = $.getdata(KEY_OTHER_PKG_TPL) || '[包] 剩余[剩] 已用[用]'
 
   const ignoreFlow = $.getdata(KEY_IGNORE_FLOW) || 0
