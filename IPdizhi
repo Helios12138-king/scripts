@@ -1,0 +1,84 @@
+# 针对部分网站显示IP归属地的QuantumultX分流规则
+# 原项目地址：https://github.com/lwd-temp/anti-ip-attribution
+# 欢迎提issues或私信bot,贡献应用新的api地址
+# 更新时间：2022-07-24
+
+
+# ======= 哔哩哔哩 ======= #
+DOMAIN-SUFFIX,biliapi.net,IP地址
+DOMAIN,api.bilibili.com,IP地址
+DOMAIN,api.bilibili.tv,IP地址
+DOMAIN,app.bilibili.com,IP地址
+DOMAIN-SUFFIX,biliapi.com,IP地址
+DOMAIN,api.live.bilibili.com,IP地址
+DOMAIN,api.vc.bilibili.com,IP地址
+DOMAIN,passport.bilibili.com,IP地址
+DOMAIN,live-trace.bilibili.com,IP地址
+DOMAIN,message.bilibili.com,IP地址
+DOMAIN,cm.bilibili.com,IP地址
+
+# ======= 微博 ======= #
+#DOMAIN,api.weibo.cn,IP地址
+#DOMAIN,api.weibo.com,IP地址
+
+# ======= 百度贴吧 ======= #
+DOMAIN,tieba.baidu.com,IP地址
+DOMAIN,tbmsg.baidu.com,IP地址
+DOMAIN,tb5.bdstatic.com,IP地址
+DOMAIN,fclog.baidu.com,IP地址
+DOMAIN,gsp0.baidu.com,IP地址
+DOMAIN,hm.baidu.com,IP地址
+DOMAIN,www.baidu.com,IP地址
+ 
+# ======= 微信 ======= #
+DOMAIN,szshort.weixin.qq.com,IP地址
+DOMAIN,szextshort.weixin.qq.com,IP地址
+DOMAIN,szminorshort.weixin.qq.com,IP地址
+DOMAIN,mp.weixin.qq.com,IP地址
+
+# ======= 知乎 ======= #
+#DOMAIN,zhihu-web-analytics.zhihu.com,IP地址
+#DOMAIN,www.zhihu.com,IP地址
+#DOMAIN,api.zhihu.com,IP地址
+DOMAIN-SUFFIX,zhihu.com,IP地址
+IP-CIDR,103.41.167.0/24,IP地址
+
+# ======= 国家反诈中心 ======= #
+DOMAIN-SUFFIX,gjfzpt.cn,REJECT 
+
+# ======= 抖音 ======= #
+# 请求域名过多，建议全局代理
+DOMAIN-KEYWORD,core-c-lq,IP地址
+DOMAIN-KEYWORD,core-lq,IP地址
+DOMAIN-KEYWORD,normal-c-lq,IP地址
+DOMAIN-KEYWORD,normal-lq,IP地址
+DOMAIN-KEYWORD,search-quic-lq,IP地址
+DOMAIN-KEYWORD,search-lq,IP地址
+
+# ======= 头条 ======= #
+# 网友提供头条IP定位接口
+DOMAIN-SUFFIX,toutiaoapi.com,IP地址
+
+
+#zhihu
+ip-cidr,103.41.167.226/8,IP地址
+
+#toutiao
+host-suffix,toutiaoapi.com,IP地址
+
+#douyin
+host-keyword,normal-lq,IP地址
+host-keyword,normal-c-lq,IP地址
+
+#tieba
+host,www.baidu.com,IP地址
+host,tracker.dcdn.baidu.com,IP地址
+host,bgg.baidu.com,IP地址
+host,query.dcdn.baidu.com,IP地址
+host,afdconf.baidu.com,IP地址
+host,mbd.baidu.com,IP地址
+host,cdn.hiphotos.baidu.com,IP地址
+host,im.tieba.baidu.com,IP地址
+host,bdbus-turbonet.baidu.com,IP地址
+host,tcbox.baidu.com,IP地址
+host,tiebac.baidu.com,IP地址
