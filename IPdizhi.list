@@ -19,8 +19,8 @@ DOMAIN,message.bilibili.com,IP地址
 DOMAIN,cm.bilibili.com,IP地址
 
 # ======= 微博 ======= #
-#DOMAIN,api.weibo.cn,IP地址
-#DOMAIN,api.weibo.com,IP地址
+DOMAIN,api.weibo.cn,IP地址
+DOMAIN,api.weibo.com,IP地址
 
 # ======= 百度贴吧 ======= #
 DOMAIN,tieba.baidu.com,IP地址
@@ -38,9 +38,9 @@ DOMAIN,szminorshort.weixin.qq.com,IP地址
 DOMAIN,mp.weixin.qq.com,IP地址
 
 # ======= 知乎 ======= #
-#DOMAIN,zhihu-web-analytics.zhihu.com,IP地址
-#DOMAIN,www.zhihu.com,IP地址
-#DOMAIN,api.zhihu.com,IP地址
+DOMAIN,zhihu-web-analytics.zhihu.com,IP地址
+DOMAIN,www.zhihu.com,IP地址
+DOMAIN,api.zhihu.com,IP地址
 DOMAIN-SUFFIX,zhihu.com,IP地址
 IP-CIDR,103.41.167.0/24,IP地址
 
