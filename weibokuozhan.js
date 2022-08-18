@@ -1,4 +1,4 @@
-const version = 'v0608.1';
+const version = 'v0717.0220';
 
 let $ = new nobyda();
 let storeMainConfig = $.read('mainConfig');
@@ -22,7 +22,7 @@ const mainConfig = storeMainConfig ? JSON.parse(storeMainConfig) : {
 
     removeLiveMedia: true, //首页顶部直播
     removeNextVideo: true, //关闭自动播放下一个视频
-
+    removePinedTrending: true, //删除热搜列表置顶条目
     removeInterestFriendInTopic: true, //超话：超话里的好友
     removeInterestTopic: true, //超话：可能感兴趣的超话 + 好友关注
     removeInterestUser: true, //用户页：可能感兴趣的人
@@ -63,7 +63,7 @@ const itemMenusConfig = storeItemMenusConfig ? JSON.parse(storeItemMenusConfig) 
     mblog_menus_home: false //返回首页
 }
 
-const modifyCardsUrls = ['/cardlist', '/page', 'video/community_tab', '/searchall'];
+const modifyCardsUrls = ['/cardlist', 'video/community_tab', '/searchall'];
 const modifyStatusesUrls = ['statuses/friends/timeline', 'statuses/unread_friends_timeline', 'statuses/unread_hot_timeline', 'groups/timeline'];
 
 const otherUrls = {
@@ -82,6 +82,8 @@ const otherUrls = {
     '/search/finder': 'removeSearchMain',
     '/search/container_timeline': 'removeSearch',
     '/search/container_discover': 'removeSearch',
+	'/2/messageflow': 'removeMsgAd',
+	'/page': 'removePage'
 }
 
 function getModifyMethod(url) {
@@ -156,6 +158,83 @@ function removeSearch(data) {
     return data;
 }
 
+function removePage(data){
+	removeCards(data);
+
+	// 删除热搜列表置顶条目
+	if (mainConfig.removePinedTrending && data.cards && data.cards.length > 0 && data.cards[0].card_group) {
+		data.cards[0].card_group = data.cards[0].card_group.filter(c=>!c.itemid.includes("t:51"));
+    }
+    if(data) data = filter_timeline_cards(data);
+	return data;
+}
+
+function filter_timeline_cards(data) {
+    if (data && data.length > 0) {
+        let j = data.length;
+        while (j--) {
+            let item = data[j];
+            let card_group = item.card_group;
+            if (card_group && card_group.length > 0) {
+                if (item.itemid && item.itemid == "hotword") {
+                    filter_top_search(card_group);
+                } else {
+                    let i = card_group.length;
+                    while (i--) {
+                        let card_group_item = card_group[i];
+                        let card_type = card_group_item.card_type;
+                        if (card_type) {
+                            if (card_type == 9) {
+                                if (is_timeline_ad(card_group_item.mblog))
+                                    card_group.splice(i, 1);
+                            } else if (card_type == 118 || card_type == 182 || card_type == 89 || card_type == 19) {
+                                card_group.splice(i, 1);
+                            } else if (card_type == 42) {
+                                if (
+                                    card_group_item.desc ==
+                                    "\u53ef\u80fd\u611f\u5174\u8da3\u7684\u4eba"
+                                ) {
+                                    data.splice(j, 1);
+                                    break;
+                                }
+                            } else if (card_type == 17) {
+                                if (data[0].card_group) data[0].card_group[0].col = 1;
+                                //if (data[0].card_group) data[0].card_group[1] = null;
+                                filter_top_search(card_group_item.group);
+                            }
+                        }
+                    }
+                }
+            } else {
+                let card_type = item.card_type;
+                if (card_type && card_type == 9) {
+                    if (is_timeline_ad(item.mblog)) data.splice(j, 1);
+                }
+            }
+        }
+    }
+    return data;
+}
+
+function filter_top_search(group) {
+    if (group && group.length > 0) {
+        let k = group.length;
+        while (k--) {
+            let group_item = group[k];
+            if (group_item.hasOwnProperty("promotion")) {
+                group.splice(k, 1);
+            }
+        }
+    }
+}
+
+function is_timeline_ad(mblog) {
+    if (!mblog) return false;
+    let promotiontype =
+        mblog.promotion && mblog.promotion.type && mblog.promotion.type == "ad";
+    let mblogtype = mblog.mblogtype && mblog.mblogtype == 1;
+    return promotiontype || mblogtype ? true : false;
+}
 
 function removeCards(data) {
     if (!data.cards) {
@@ -245,7 +324,6 @@ function removeTimeLine(data) {
             element.user.verified_type = 0;
             element.user.svip = 1;
             element.user.verified_level = 2;
-            element.user.avatargj_id = 'gj_vip_583';
             element.user.verified = true;
             element.user.has_ability_tag = 1;
             element.user.type = 1;
@@ -264,16 +342,118 @@ function removeHomeVip(data) {
         return data;
     }
     data.header.avatar.badgeUrl = 'https://h5.sinaimg.cn/upload/100/888/2021/04/07/avatar_vip_golden.png';
-    data.header.desc.content = '微博认证：无敌肌肉大猛男💪';
+    data.header.desc.content = '万千灯盏，都不是归处。';
     // data.items[0].title.content = '0';
     let vipCenter = data.header.vipCenter;
+    let vipIcon = data.header.vipIcon;
+    let vipView = data.header.vipView;
     if (!vipCenter) {
         return data;
     }
-    vipCenter.icon.iconUrl = 'https://h5.sinaimg.cn/upload/1071/1468/2021/12/22/hy_dongtu.gif';
-    vipCenter.dot.iconUrl = 'https://h5.sinaimg.cn/upload/100/888/2021/03/22/jiantougaocheng.png';
-    vipCenter.content.contents[2].content = '会员中心';
-    vipCenter.title.content = '会员中心';
+    if (vipCenter) {
+        if (vipCenter.icon) vipCenter.icon.iconUrl = 'https://h5.sinaimg.cn/upload/1071/1468/2021/12/22/hy_dongtu.gif';
+        if (vipCenter.dot) vipCenter.dot.iconUrl = 'https://h5.sinaimg.cn/upload/100/888/2021/03/22/jiantougaocheng.png';
+        if (vipCenter.content.contents) vipCenter.content.contents[2].content = '会员中心';
+        if (vipCenter.title) vipCenter.title.content = '会员中心';
+    }
+
+    if (vipIcon) {
+        vipIcon.iconUrl = 'https:\/\/h5.sinaimg.cn\/upload\/1004\/409\/2021\/06\/08\/feed_icon_100vip_7.png';
+        vipIcon.style.width = '15';
+        vipIcon.style.height = '18';
+    }
+    if (vipView) {
+        if (vipView.content1 && vipView.content1.contents && vipView.content1.contents.length > 1) {
+            vipView.content1.contents[0].iconUrl = 'https://h5.sinaimg.cn/upload/100/1734/2022/06/01/vip7_title.png';
+            vipView.content1.contents[2].content = '您是尊贵的终身VIP用户';
+            vipView.content1.contents[2].style.textColor = '#BB5416';
+            vipView.content1.contents[2].style.textColorDark = '#AC521C';
+        }
+        if (vipView.content2) vipView.content2.texts = [
+            {
+                "type": "richText",
+                "contents": [
+                    {
+                        "type": "text",
+                        "style": {
+                            "textColor": "#E1834D",
+                            "textColorDark": "#D0743F",
+                            "textSize": 12
+                        },
+                        "content": "去追风，不必设定方向！"
+                    },
+                    {
+                        "type": "icon",
+                        "style": {
+                            "width": 10,
+                            "height": 10,
+                            "darkMode": "urlAppend"
+                        },
+                        "iconUrl": "https:\/\/h5.sinaimg.cn\/upload\/100\/1734\/2022\/06\/01\/vip7_subtitle.png"
+                    }
+                ]
+            },
+            {
+                "type": "richText",
+                "contents": [
+                    {
+                        "type": "text",
+                        "style": {
+                            "textColor": "#E1834D",
+                            "textColorDark": "#D0743F",
+                            "textSize": 12
+                        },
+                        "content": "明天又是个好日子！"
+                    },
+                    {
+                        "type": "icon",
+                        "style": {
+                            "width": 10,
+                            "height": 10,
+                            "darkMode": "urlAppend"
+                        },
+                        "iconUrl": "https:\/\/h5.sinaimg.cn\/upload\/100\/1734\/2022\/06\/01\/vip7_subtitle.png"
+                    }
+                ]
+            },
+            {
+                "type": "richText",
+                "contents": [
+                    {
+                        "type": "text",
+                        "style": {
+                            "textColor": "#E1834D",
+                            "textColorDark": "#D0743F",
+                            "textSize": 12
+                        },
+                        "content": "努力过好每一天！"
+                    },
+                    {
+                        "type": "icon",
+                        "style": {
+                            "width": 10,
+                            "height": 10,
+                            "darkMode": "urlAppend"
+                        },
+                        "iconUrl": "https:\/\/h5.sinaimg.cn\/upload\/100\/1734\/2022\/06\/01\/vip7_subtitle.png"
+                    }
+                ]
+            }
+        ];
+        if (vipView.rightImage) {
+            vipView.rightImage.iconUrl = 'https://h5.sinaimg.cn/upload/100/1734/2022/06/01/vip7_button.png';
+            vipView.rightImage.itemId = 'button_VIP_all';
+        }
+        if (vipView.rightText) {
+            vipView.rightText.content = '会员中心';
+            vipView.rightText.itemId = 'button_VIP_all';
+            vipView.rightText.style.textColor = '#BB5416';
+            vipView.rightText.style.textColorDark = '#AC521C';
+        }
+        if (vipView.bgImage1) vipView.bgImage1.iconUrl = 'https://h5.sinaimg.cn/upload/100/1734/2022/06/08/vip7_bg1.png';
+        vipView.itemId = 'background_VIP';
+    }
+
     return data;
 }
 
@@ -296,21 +476,23 @@ function itemExtendHandler(data) {
         if (data.trend && data.trend.titles) {
             let title = data.trend.titles.title;
             if (mainConfig.removeRelate && title === '相关推荐') {
-                data.trend = null;
+                delete data.trend;
             } else if (mainConfig.removeGood && title === '博主好物种草') {
-                data.trend = null;
+                delete data.trend;
             }
         }
     }
     if (mainConfig.removeFollow) {
         if (data.follow_data) {
             data.follow_data = null;
+            delete data.reward_info;
         }
     }
 
     if (mainConfig.removeRewardItem) {
         if (data.reward_info) {
             data.reward_info = null;
+            delete data.reward_info;
         }
     }
 
@@ -318,7 +500,7 @@ function itemExtendHandler(data) {
     try {
         let picUrl = data.trend.extra_struct.extBtnInfo.btn_picurl;
         if (picUrl.indexOf('timeline_icon_ad_delete') > -1) {
-            data.trend = null;
+            delete data.trend;
         }
     } catch (error) {
 
@@ -403,6 +585,9 @@ function removeHome(data) {
             updateProfileSkin(item, 'profileSkin1');
             newItems.push(item);
         } else if (itemId == '100505_-_newcreator') {
+            //创作者中心卡片底部圆角
+            if (item.style && item.style.background) item.style.background.corners = [7, 7, 7, 7];
+            if (item.style) item.style.padding = [0, 0, 0, 7];
             if (item.type == 'grid') {
                 updateProfileSkin(item, 'profileSkin2');
                 newItems.push(item);
@@ -420,6 +605,7 @@ function removeHome(data) {
         }
     }
     data.items = newItems;
+    if (data.moreInfo) data.moreInfo.noMore = true;
     return data;
 }
 
