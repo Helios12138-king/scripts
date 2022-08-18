@@ -365,7 +365,7 @@ function removeHomeVip(data) {
     if (vipView) {
         if (vipView.content1 && vipView.content1.contents && vipView.content1.contents.length > 1) {
             vipView.content1.contents[0].iconUrl = 'https://h5.sinaimg.cn/upload/100/1734/2022/06/01/vip7_title.png';
-            vipView.content1.contents[2].content = '您是尊贵的终身VIP用户';
+            vipView.content1.contents[2].content = '您是尊贵的VIP用户👑';
             vipView.content1.contents[2].style.textColor = '#BB5416';
             vipView.content1.contents[2].style.textColorDark = '#AC521C';
         }
@@ -403,7 +403,7 @@ function removeHomeVip(data) {
                             "textColorDark": "#D0743F",
                             "textSize": 12
                         },
-                        "content": "明天又是个好日子！"
+                        "content": "花自向阳开，人终朝前走。"
                     },
                     {
                         "type": "icon",
@@ -426,7 +426,7 @@ function removeHomeVip(data) {
                             "textColorDark": "#D0743F",
                             "textSize": 12
                         },
-                        "content": "努力过好每一天！"
+                        "content": "人间烟火气，最抚凡人心。"
                     },
                     {
                         "type": "icon",
