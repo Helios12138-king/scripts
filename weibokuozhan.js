@@ -365,7 +365,7 @@ function removeHomeVip(data) {
     if (vipView) {
         if (vipView.content1 && vipView.content1.contents && vipView.content1.contents.length > 1) {
             vipView.content1.contents[0].iconUrl = 'https://h5.sinaimg.cn/upload/100/1734/2022/06/01/vip7_title.png';
-            vipView.content1.contents[2].content = '您是尊贵的VIP用户👑';
+            vipView.content1.contents[2].content = '征途所在，是星辰大海。';
             vipView.content1.contents[2].style.textColor = '#BB5416';
             vipView.content1.contents[2].style.textColorDark = '#AC521C';
         }
