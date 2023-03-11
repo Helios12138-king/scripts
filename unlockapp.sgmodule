@@ -1,0 +1,154 @@
+################################################################
+# 重写作用：解锁部分app的会员
+# 重要提示：脚本均收集于互联网，请尊重原创作者
+# 注意事项：当遇到部分软件无法联网时，记得取消勾选该重写
+# 项目地址：https://github.com/fmz200/wool_scripts
+# 交流群组：
+# 更新时间：2022.11.24 18:10
+#############################################
+
+# 网易云音乐 解锁全局Vip
+;^http[s]?:\/\/.+(player/url|playlist|entrance|/eapi/search/).*$ url script-request-header https://raw.githubusercontent.com/gjwj666/qx/main/wyy.js
+
+# 酷我解锁会员
+;https://raw.githubusercontent.com/gjwj666/qx/main/kw.js
+
+# 喜马拉雅 解锁全局会员
+;^http[s]?:\/\/((.+ximalaya.+)|(.+xmcdn.+)) url script-request-header https://raw.githubusercontent.com/gjwj666/qx/main/xmly.js
+
+# Keep解锁会员 解锁会员课程 直播课程全解锁
+^https:\/\/.+keep.+/gerudo/v2/liveCourse/.+/details.*$ url response-body "userMemberStatus":\w+ response-body "userMemberStatus":true
+^http[s]?:\/\/.+keep.+(liveStream/schedule|start|preview|athena/v5/people/my|ad/preload).*$ url script-response-body https://raw.githubusercontent.com/gjwj666/qx/main/kp.js
+
+
+# 美图秀秀+解锁VIP 💞
+^https:\/\/api\.xiuxiu\.meitu\.com\/v1 url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/mtxx.js
+
+# B612咔叽+解锁VIP
+^https:\/\/user-kaji-api\.b612kaji\.com\/v1\/purchase\/subscription\/subscriber\/status url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/bj.js
+
+# XMind思维导图+解锁订阅
+^https:\/\/www\.xmind\.cn\/_res\/devices url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/xmind.js
+
+# 美颜相机+解锁VIP
+^https:\/\/api\.meiyan\.com\/vip\/user_info\.json url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/myxj.js
+
+# 文件管理器+解锁订阅
+^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wjglq.js
+
+# 1blocker+解锁订阅
+^https:\/\/api\.revenuecat\.com\/v1\/subscribers url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/blocker.js
+
+
+# Picsew滚动截图+解锁订阅
+^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Picsew.js
+
+# VSCO:照片编辑+恢复订阅
+^https:\/\/api\.revenuecat\.com\/v1\/subscribers.+ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/vsco.js
+
+# Notability +解锁订阅【老版本】
+^https?:\/\/notability\.com\/subscriptions url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Notability.js
+
+
+# Photoshop Express +解锁高级用户
+^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Photoshop.js
+
+# Lr Adobe Lightroom+解锁订阅
+^https:\/\/photos\.adobe\.io\/v2\/accounts* url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/lightroom.js
+
+# 扫描全能王 +解锁VIP
+^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/smqnw.js
+
+# 傲软PDF编辑+解锁VIP
+^https:\/\/gw\.aoscdn\.com\/base\/vip\/client\/authorizations url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/arpdf.js
+
+# 傲软扫描+解锁VIP
+^https:\/\/gw\.aoscdn\.com\/base\/vip\/client\/authorizations url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/arpdf.js
+
+# WPS Office+解锁VIP
+^https?:\/\/account\.wps\.cn\/api\/users url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wps.js
+
+
+# Scanner pro+解锁订阅
+^https?:\/\/api\.revenuecat\.com\/v1\/(receipts|subscribers\/\$RCAnonymousID%3A\w{32})$ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Scanner.js
+
+# 醒图+解锁VIP
+^https:\/\/commerce-api\.faceu\.mobi\/commerce\/v1\/subscription url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/xt.js
+
+# documents+解锁订阅
+^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/documents\/subscription\/refresh url script-request-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/documents.js
+
+# 酷我音乐+解锁VIP
+^https?:\/\/.*\.(kuwo|lrts)\.(cn|me)\/(a\.p|music\.pay|(vip\/(v2|enc)\/(theme|user\/vip))|(EcomResource|(Mobile)?Ad)Serv(er|ice)).* url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/kwyy.js
+
+# 网易有道词典+解锁VIP
+^https:\/\/dict\.youdao\.com\/vip\/user\/status url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wyydcd.js
+
+# 万能小组件 - TopWidgets +解锁订阅
+^https:\/\/top-widgets-api\.xiaozujian\.com\/api\/app\/config\/userConfig url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/widgets.js
+
+# Pillow睡眠周期跟踪器+解锁订阅
+^https?:\/\/api\.revenuecat\.com\/v1\/(receipts|subscribers\/\$RCAnonymousID%3A\w{32})$ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Pillow.js
+
+# PDF—Expert点睛+解锁订阅
+^https:\/\/license\.pdfexpert\.com\/api\/2\.0\/pdfexpert6\/subscription\/refresh url script-request-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/PDFExpert.js
+
+# 小影-视频剪辑制作+解锁VIP
+^https:\/\/(xy-viva\.kakalili|api-chn.rthdo)\.com\/api\/rest\/u\/vipVerifyReceipt url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/xiaoyin.js
+
+# MiX滤镜大师+解锁订阅
+https?:\/\/bmall\.camera360\.com\/api\/mix\/recovery url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/MIX.js
+
+# 网速管家+解锁VIP
+^https:\/\/api-v3\.speedtest\.cn\/user\/info url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wsgj.js
+
+# 网速测试大师+解锁订阅
+^https:\/\/iap\.etm\.tech\/receipts url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wscsds.js
+
+# 全能小组件- Quike+解锁订阅
+^https:\/\/shared\.lc-cn-n1-shared\.com\/1\.1\/classes\/Users url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Quike.js
+
+# 迅雷-你的专享云盘+解锁VIP
+https://xluser-ssl.xunlei.com/xluser.core.login/v3/getuserinfo url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/xunlei.js
+
+# 轻颜相机+解锁VIP
+^https:\/\/commerce-api\.faceu\.mobi\/commerce\/v1\/subscription\/user_info? url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/qyxj.js
+
+# Nicegram: Unlimited Text+解锁订阅
+https?:\/\/restore-access\.indream\.app\/restoreAccess\?id=\d{5,10} url echo-response text/json echo-response https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Nicegram.js
+
+# 极速扫描仪+解锁订阅
+^https:\/\/scanner\.jianse\.tv\/api\/users\/loginUser url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/jssmy.js
+
+# 网易云解锁灰+节点订阅
+# https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wyy.list
+
+# 手机硬件管家+解锁订阅
+^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/(\$RCAnonymousID%)?(\w)*$) url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/sjyjgj.js
+
+# CAD快速看图+解锁订阅
+^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/CDAkskt.js
+
+# Emote - 聊天式笔记+解锁订阅
+^https?:\/\/api\.revenuecat\.com\/v1\/(receipts|subscribers\/\$RCAnonymousID%3A\w{32})$ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Emote.js
+
+# 百度文库☆解锁VIP文档阅读权限
+^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/bdwk.js
+
+# Keep -跑步健身——解锁VIP
+^https:\/\/api\.gotokeep\.com url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/keep.js
+
+# 小组件盒子——解锁VIP
+^https:\/\/widget-box-api\.codefuture\.top\/v1\/users\/me url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/xzjhz.js
+
+# APTV-+解锁订阅
+https://api.revenuecat.com/v1/(receipts|subscribers)/* url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/APTV.js
+
+# 格志日记+解锁订阅
+^https:\/\/diary-id\.sumi\.io\/api\/profile url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/gzrz.js
+
+# 电视家+解锁VIP
+^http[s]?:\/\/123.56.125.184 url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/dsj.js
+
+
+hostname = %APPEND% *dushu*, *keep*, qianji.xxoojoke.com, integral.dasyibalang.com, *.kuwo.cn, xianbeikeji.com, fxshot-api.afunapp.com, frogtodo.shuge888.com, puzzle.xcxsc.net, hi.weshine.im, yyqq1.youngwingtec.com, www.njmc.vip, miniapi.52muyou.com, zebra.maka.im, curriculum-api.yizhiweixin.com, xmct.qszhg.6hwan.com, gjyklslb.mantianfei.net, api.duitang.com, top-widgets-api.xiaozujian.com, diary-id.sumi.io, bowland.bytedance.com, api.tipsoon.com, api.qingning6.com, api.meiease.cn, fcapi.91por.vip, closet.jinjian.tech, m2u-api.getkwai.com, wallpaper.soutushenqi.com, api-production.endel.io, xluser-ssl.xunlei.com, api.v1.esread.com, nowapi.navoinfo.cn, 123.56.125.184, api.sevenworkouts.com, *, memoryhelper.fujianjin6471.com, *.lrts.me, api.*.com, api.chiyue365.com, lchttpapi.xczim.com, medi.dxzzy321.top, api.meiyan.com, awvp.aoscdn.com, mid.zineapi.com, yyy.bosum.com, api.memrise.com, partner-ai-api.quthing.com, scanner.jianse.tv, ec.myjkyd.com, wx-xmlb.lanfeitech.com, www.freshhome.top, pay.wecut.com, api.revenuecat.com, dev.fish.17fish.cool, cn-rest.dhcn.greenergrass.games, buy.itunes.apple.com, api.apphud.com, dida365.com, expire.vanemu.com, dayone.app, aicblhapp.ubestkid.com, *.boshu.*, data.ufbae.com, photos.adobe.io, yxgs-tf-yx.tapenjoy.com, api2.mubu.com, restianjianhu.mg.xhgame.com, accounts.agenda.com, api-chn.rthdo.com, vira.llsapp.com, restore-access.indream.app, widget-box-api.codefuture.top, dq.xiangha.com, %APPEND%api.effie.pro, wx-bingdu.lanfeitech.com, getway-plan.abuddz.com, www.40sishi.com, www.weikeduo.top, account.wps.cn, iap.etm.tech, carrotweather.herokuapp.com, %APPEND%zip.jinzitao.com, api.pxmage.com, sdk.api.appwheel.com, wxsdk-data.d3games.com, flomoapp.com, files.yuchenglw.com, app-measurement.com, p.du.163.com, hhwxgs.cisgames.cn, *.busuu.com, cm.szsszykj.com, backend.getdrafts.com, bmall.camera360.com, gw.aoscdn.com, user.xiaozaoapp.com, cn.invit.vip, server1.xxxy.dayukeji.com, *.bosuu.com, scibug.com, %APPEND%api4.bybutter.com, ljwapi.baichuan.tech, pgapi.ksmobile.com, notability.com, commerce-api.faceu.mobi, api.sortedapp.com, api3.umu168.com, yimuapp.com, api.pengranapp.com, changeclothes.szsszykj.com, vipapi.jxedt.com, ap*.intsig.net, user-kaji-api.b612kaji.com, c-api.wjpaa.cn, api.gotokeep.com, api.lingokids.com, ssl-api.itranslateapp.com, appapi.*.com, api-v3.speedtest.cn, www.evestudio.cn, api.xunyou.mobi, update.kl321.com, tutugushiapi.tutuerge.com, i.weread.qq.com, apiv3-sxk.raink.com.cn, dict.youdao.com, shared.lc-cn-n1-shared.com, gjzwwx.game.jingyougz.com, xiaobai.mcfifa.cn, apiios_dq.xiangha.com, xrckeji.com, subscription-api.notedapp.io, cubox.pro, api.yonekura.cn, hlys.vipwzswl.com, www.xmind.cn, license.pdfexpert.com, simh5.soloknight.xyz, appwk.baidu.com, api.bluepulse.cn, api.craft.do, footprint-api.quthing.com, api-sub.meitu.com, www.zhongkao66.com, ttdy.aslk2018.com, fufei.fengyunsoft.cn, api.xiuxiu.meitu.com, app.api.versa-ai.com, iosv2.cjapi.wufan88.com, bladecn.mofishgames.com, qr.duomihongbao.cn, service.ilovepdf.com, baimiao.uzero.cn, api.shaolinzen.com, lcs-mobile-cops.adobe.io, www.caaaat.com, jiliapi.xndplqq.cn, *.radio.cn, screen-lock.51wnl-cq.com, xy-viva.kakalili.com
