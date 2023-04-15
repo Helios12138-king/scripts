@@ -56,8 +56,8 @@ if(net=="en0") {
 
   $done({
       title:"流量统计 | "+netType,
-      content:`上传流量 ➟ ${upload}\n`+
-	`下载流量 ➟ ${download}\n`+`下载峰值 ➟ ${inMaxSpeed}`,
+      content:`上传流量：${upload}\n`+
+	`下载流量：${download}\n`+`下载峰值：${inMaxSpeed}`,
 		icon: params.icon,
 		  "icon-color":params.color
     });
