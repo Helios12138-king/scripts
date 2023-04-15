@@ -50,7 +50,7 @@ let netType;
 if(net=="en0") {
 	netType = "WiFi"
 	}else{
-	netType = "蜂窝数据"
+	netType = "蜂窝"
 	}
 
 
