@@ -163,7 +163,7 @@ async function operator(proxies) {
           // {"country":"中国","regionName":"广东","city":"广州","district":"越秀区","isp":"中国移动","operator":"中国移动"}
           // 落地
           const outip = await IPAPI(proxy);
-          let outnames = outip.regionName + outip.city;
+          let outnames = outip.country + outip.city;
           let reoutnames = ""; // 落地
           let asns = ""; //运营商
           let adcm = ""; // 运营商符号
