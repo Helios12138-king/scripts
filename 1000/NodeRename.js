@@ -232,7 +232,7 @@ async function operator(proxies) {
           } else if (flag) {
             inkey = adcm + FGF;
           } else if (isp || yun) {
-            inkey = asns + FGF;
+            inkey = adcm + FGF;
           } else if (city || sheng) {
             inkey = incity + FGF;
           } else {
