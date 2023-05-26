@@ -277,12 +277,12 @@ async function operator(proxies) {
           } else {
             reoutnames = outnames + otu
           }
-          let adflag = "";
-          if (flag) {
-            adflag = getflag(outip.countryCode)
-          } else {
-            adflag = "";
-          }
+         // let adflag = "";
+          //if (flag) {
+           // adflag = getflag(outip.countryCode)
+          //} else {
+          //  adflag = "";
+        //  }
           if (debug) {
             console.log("--处理前节点名🍉" + JSON.stringify(proxy.name))
             console.log("server为" + JSON.stringify(proxy.server))
