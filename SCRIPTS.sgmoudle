@@ -18,7 +18,7 @@ force-http-engine-hosts = %APPEND% boxjs.net, boxjs.com
 
 [Rule]
 # > 策略优选
-AND,((DOMAIN,iosapps.itunes.apple.com), (SCRIPT,策略优选)),CN
+#AND,((DOMAIN,iosapps.itunes.apple.com), (SCRIPT,策略优选)),CN
 # 慧车天下 去广告修正
 URL-REGEX,api-access.pangolin-sdk-toutiao.com,REJECT-NO-DROP
 # > Safari 防跳转
