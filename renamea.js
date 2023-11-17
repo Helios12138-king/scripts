@@ -405,23 +405,23 @@ async function operator(e = [], targetPlatform, env) {
                             Oct = inCity ? inCity : inIpSh;
                           }
                           // 运营商 未知
-                          flag && (Oispflag = "🅲");
+                          flag && (Oispflag = "");
 
                       } else {
                           if(inQuery === outips){
-                              flag && (Oispflag = "🆉");
+                              flag && (Oispflag = "");
                               (sheng || city || iisp) && (zhi  = "直连");
                           } else if (yuan){
-                              flag && (Oispflag = "🅲");
+                              flag && (Oispflag = "");
                               (sheng || city || iisp) && (zhi  = inUsq);
                           } else {
-                              flag && (Oispflag = "🆇");
+                              flag && (Oispflag = "");
                               (sheng || city || iisp) && (zhi  = "境外");
                           }
                       }
                 }
               } else {
-                flag && (Oispflag = "🆉");
+                flag && (Oispflag = "");
                 (sheng || city || iisp) && (zhi  = "直连");
               }
               flag && (adflag = getflag(outu));
