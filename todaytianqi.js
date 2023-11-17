@@ -21,7 +21,7 @@ $httpClient.get(apiUrl, (error, response, data) => {
     const message = `城市：${cityInfo.city}\n更新时间：${cityInfo.updateTime} \n天气：${currentWeather.type}\n温度：${currentWeather.low} ； ${currentWeather.high}\n提示：${currentWeather.notice}`;
 
   const body = {
-    title: "今日天气",
+    title: "＇${currentWeather.notice}＇",
     content: message,
     cityId:params.cityId,
     icon: params.icon,
