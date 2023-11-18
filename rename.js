@@ -410,19 +410,19 @@ async function operator(e = [], targetPlatform, env) {
                       } else {
                           if(inQuery === outips){
                               flag && (Oispflag = "");
-                              (sheng || city || iisp) && (zhi  = "直连");
+                              (sheng || city || iisp) && (zhi  = "");
                           } else if (yuan){
                               flag && (Oispflag = "");
                               (sheng || city || iisp) && (zhi  = inUsq);
                           } else {
                               flag && (Oispflag = "");
-                              (sheng || city || iisp) && (zhi  = "境外");
+                              (sheng || city || iisp) && (zhi  = "");
                           }
                       }
                 }
               } else {
                 flag && (Oispflag = "");
-                (sheng || city || iisp) && (zhi  = "直连");
+                (sheng || city || iisp) && (zhi  = "");
               }
               flag && (adflag = getflag(outu));
               game && (OGame = /game|游戏/i.test(pk.name) ? (flag ? "🎮" : FGF+"Game") : OGame);
