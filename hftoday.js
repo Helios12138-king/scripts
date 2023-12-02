@@ -21,7 +21,7 @@ $httpClient.get(apiUrl, (error, response, data) => {
     const message = `天气：${currentWeather.type}\n温度：${currentWeather.low}  ${currentWeather.high} \n更新：${cityInfo.updateTime}`;
 //`城市：${cityInfo.city}\n更新：${cityInfo.updateTime} \n天气：${currentWeather.type}\n温度：${currentWeather.low}  ${currentWeather.high}`
   const body = {
-    title: "合肥市天气",
+    title: "合肥市",
     content: message,
     cityId:params.cityId,
     icon: params.icon,
