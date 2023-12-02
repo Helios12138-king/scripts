@@ -18,10 +18,10 @@ $httpClient.get(apiUrl, (error, response, data) => {
 
   const cityInfo = weatherData.cityInfo;
   const currentWeather = weatherData.data.forecast[0];
-    const message = `城市：${cityInfo.city}\n更新：${cityInfo.updateTime} \n天气：${currentWeather.type}\n温度：${currentWeather.low}  ${currentWeather.high}`;
-
+    const message = `天气：${currentWeather.type}\n温度：${currentWeather.low}  ${currentWeather.high} \n更新：${cityInfo.updateTime}`;
+//`城市：${cityInfo.city}\n更新：${cityInfo.updateTime} \n天气：${currentWeather.type}\n温度：${currentWeather.low}  ${currentWeather.high}`
   const body = {
-    title: "今日天气",
+    title: "合肥市天气",
     content: message,
     cityId:params.cityId,
     icon: params.icon,
