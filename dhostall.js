@@ -5,16 +5,16 @@ async function operator(proxies = []) {
       _.set(p, 'name', '[钉钉]'+name)
       if(_.get(p, 'type') === 'vmess') {
         if(_.get(p, 'network') === 'ws') {
-          _.set(p, 'ws-opts.headers.Host', 'tms.dingtalk.com')
+          _.set(p, 'ws-opts.headers.Host', 'gw.alicdn.com')
         }
         if(_.get(p, 'network') === 'http') {
           _.set(p, 'http-opts.headers.method', 'GET')
           _.set(p, 'http-opts.path', ['/'])
-          _.set(p, 'http-opts.headers.Host', ['tms.dingtalk.com'])
+          _.set(p, 'http-opts.headers.Host', ['gw.alicdn.com'])
         }
       }
       if(_.get(p, 'type') === 'trojan') {
-        _.set(p, 'sni', 'tms.dingtalk.com')
+        _.set(p, 'sni', 'gw.alicdn.com')
       }
       return p
     })
